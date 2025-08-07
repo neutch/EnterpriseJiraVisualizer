@@ -1,0 +1,34 @@
+node_modules
+npm-debug.log
+.git
+.gitignore
+.env
+.env.local
+README.md
+Dockerfile
+.dockerignore
+docker-compose*.yml
+.nyc_output
+coverage
+dist
+build
+.idea
+.vscode
+*.log
+logs
+.DS_Store
+Thumbs.db
+
+# Test files
+tests/
+**/*.test.ts
+**/*.test.js
+**/*.spec.ts
+**/*.spec.js
+
+# Development files
+*.dev.*
+.eslintrc.*
+.prettierrc
+jest.config.*
+tsconfig.json

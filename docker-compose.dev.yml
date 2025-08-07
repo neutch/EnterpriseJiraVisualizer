@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  client:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.client.dev
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./client:/app/client:cached
+      - ./src:/app/src:cached
+      - /app/client/node_modules
+    networks:
+      - jira-visualizer-dev
+
+  server:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.server.dev  
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=development
+      - PORT=4000
+    env_file:
+      - .env
+    volumes:
+      - ./server:/app/server:cached
+      - ./src:/app/src:cached
+      - /app/server/node_modules
+    networks:
+      - jira-visualizer-dev
+    depends_on:
+      - client
+
+networks:
+  jira-visualizer-dev:
+    driver: bridge

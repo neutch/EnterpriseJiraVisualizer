@@ -1,0 +1,25 @@
+node_modules
+dist
+build
+coverage
+.git
+.env
+.env.*
+*.log
+logs
+.DS_Store
+Thumbs.db
+package-lock.json
+yarn.lock
+
+# Build outputs
+client/dist/
+server/dist/
+
+# IDE
+.idea
+.vscode
+
+# Docker
+Dockerfile
+docker-compose*.yml
